@@ -10,7 +10,7 @@ class Diamond extends StatefulWidget {
 }
 
 class _DiamondState extends State<Diamond> {
-  late int boxes;
+//   late int boxes;
   late int row;
   late int input;
   late ScrollController _scrollController;
@@ -29,7 +29,7 @@ class _DiamondState extends State<Diamond> {
         (_scrollController.position.maxScrollExtent / 2.3),
       );
       _scrollController.jumpTo(
-        (_scrollController.position.maxScrollExtent / 2.3),
+        (_scrollController.position.minScrollExtent / 2.3),
       );
     });
   }
@@ -79,8 +79,8 @@ class _DiamondState extends State<Diamond> {
           listWidget.add((col <= (start + end) / 2)
               ? SlideInDown(
             delay: Duration(
-                milliseconds: (1500 * ((userInput - col) - 1)) - (row * (50 + (userInput * 2)))),
-            duration: Duration(milliseconds: col == (userInput - 1) ? 0 : 1500),
+                milliseconds: (1000 * ((userInput - col) - 1)) - (row * (50 + (userInput)))),
+            duration: Duration(milliseconds: col == (userInput - 1) ? 0 : 1000),
             child: Container(
               decoration: BoxDecoration(
                   color: Colors.grey,
@@ -89,7 +89,7 @@ class _DiamondState extends State<Diamond> {
               child: Text(
                 '$containerText',
                 style: const TextStyle(
-                  color: Colors.red,
+                  color: Colors.black,
                   fontSize: 10.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -97,8 +97,8 @@ class _DiamondState extends State<Diamond> {
             ),
           )
               : SlideInUp(
-            delay: Duration(milliseconds: (1500 * ((col - userInput) + 1) - (row * (50 + (userInput * 2))))),
-            duration: Duration(milliseconds: 1500),
+            delay: Duration(milliseconds: (1000 * ((col - userInput) + 1) - (row * (50 + (userInput))))),
+            duration: Duration(milliseconds: 1000),
             child: Container(
               decoration: BoxDecoration(
                   color: Colors.grey,
@@ -107,7 +107,7 @@ class _DiamondState extends State<Diamond> {
               child: Text(
                 '$containerText',
                 style: const TextStyle(
-                  color: Colors.red,
+                  color: Colors.black,
                   fontSize: 10.0,
                   fontWeight: FontWeight.bold,
                 ),
