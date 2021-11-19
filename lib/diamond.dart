@@ -63,12 +63,10 @@ class _DiamondState extends State<Diamond> {
   List<Widget> pattern(int userInput) {
     var listWidget = <Widget>[];
     int size = row;
-// int start1 = 0;
     int start, end, mid;
     int containerText = 0;
     start = end = mid = size ~/ 2;
     for (int row = 0; row < size; row++) {
-// start1++;
       for (int col = 0; col < size; col++) {
         if (col >= start && col <= end) {
           if (col <= (start + end) / 2) {
