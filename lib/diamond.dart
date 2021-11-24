@@ -76,6 +76,7 @@ class _DiamondState extends State<Diamond> {
           }
           listWidget.add((col <= (start + end) / 2)
               ? SlideInDown(
+                from:(50.0 * (userInput)),
             delay: Duration(
                 milliseconds: (1000 * ((userInput - col) - 1)) - (row * (50 + (userInput)))),
             duration: Duration(milliseconds: col == (userInput - 1) ? 0 : 1000),
@@ -95,6 +96,7 @@ class _DiamondState extends State<Diamond> {
             ),
           )
               : SlideInUp(
+                from:(50.0 * (userInput)),
             delay: Duration(milliseconds: (1000 * ((col - userInput) + 1) - (row * (50 + (userInput))))),
             duration: Duration(milliseconds: 1000),
             child: Container(
